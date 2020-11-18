@@ -37,6 +37,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.questhelper.QuestHelperPlugin;
 import com.questhelper.questhelpers.BasicQuestHelper;
 import com.questhelper.steps.QuestStep;
+import net.runelite.client.Notifier;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.DynamicGridLayout;
 import net.runelite.client.ui.PluginPanel;
@@ -62,7 +63,7 @@ class QuestHelperPanel extends PluginPanel
 
 	QuestHelperPlugin questHelperPlugin;
 
-	public QuestHelperPanel(QuestHelperPlugin questHelperPlugin)
+	public QuestHelperPanel(QuestHelperPlugin questHelperPlugin, Notifier notifier)
 	{
 		super(false);
 
@@ -151,7 +152,7 @@ class QuestHelperPanel extends PluginPanel
 		add(scrollableContainer, BorderLayout.CENTER);
 
 		/* Layout */
-		questOverviewPanel = new QuestOverviewPanel(questHelperPlugin);
+		questOverviewPanel = new QuestOverviewPanel(questHelperPlugin, notifier);
 
 		questOverviewWrapper.setLayout(new BorderLayout());
 		questOverviewWrapper.add(questOverviewPanel, BorderLayout.NORTH);
