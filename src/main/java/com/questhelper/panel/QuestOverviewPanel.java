@@ -25,7 +25,6 @@
 package com.questhelper.panel;
 
 import com.questhelper.QuestHelperPlugin;
-import com.questhelper.questhelpers.BasicQuestHelper;
 
 import com.questhelper.questhelpers.QuestHelper;
 import com.questhelper.requirements.ItemRequirement;
@@ -43,7 +42,6 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -411,7 +409,7 @@ public class QuestOverviewPanel extends JPanel
 		{
 			return;
 		}
-		StringBuilder bankTag = new StringBuilder(currentQuest.getQuest().getName());
+		StringBuilder bankTag = new StringBuilder("quest-helper");
 		bankTag.append(",").append("9813");
 		for (ItemRequirement itemRequirement : currentQuest.getItemRequirements())
 		{
@@ -423,7 +421,7 @@ public class QuestOverviewPanel extends JPanel
 		StringSelection stringSelection = new StringSelection(bankTag.toString());
 		Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clpbrd.setContents (stringSelection, null);
-		notifier.notify("Quest item requirements copied to clipboard. Use this to create a bank tab.");
+		notifier.notify("Quest item requirements copied to clipboard. Use this to create a bank tab. You can search for all the required items in the GE by searching 'tag:quest-helper'.");
 	}
 
 	void updateCollapseText()
